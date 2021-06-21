@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<section id="about" style="background-color:honeydew">
+    <br>
+    <div class="container mt-5">
+        <div class="col-lg-12">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -63,6 +67,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
+                                <br>
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
@@ -74,4 +79,9 @@
         </div>
     </div>
 </div>
+</div>
+</div>
+</div>
+<br>
+</section>
 @endsection

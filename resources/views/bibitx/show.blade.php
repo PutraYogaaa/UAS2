@@ -11,7 +11,7 @@
                     <h1 class="fw-bolder mb-1">{{$daftars->title}}</h1>
                 </header>
                 <!-- Preview image figure-->
-                <figure class="mb-4"><img class="img-fluid rounded" src="{{asset('storage/'.$daftars->file)}}" alt="..." /></figure>
+                <figure class="mb-4"><img class="img-fluid rounded" src="{{asset('storage/'.$daftars->file)}}" width="200" /></figure>
                 <!-- Post content-->
                 <section class="mb-5">
                     <p class="fs-5 mb-4">{{$daftars->content}}</p>

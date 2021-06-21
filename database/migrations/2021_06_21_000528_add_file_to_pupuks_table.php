@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDaftarsTable extends Migration
+class AddFileToPupuksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateDaftarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('daftars', function (Blueprint $table) {
-            $table->id();
-            $table->string('title', 255)->default('');
-            $table->longText('content')->default(null);
-            $table->timestamps();
+        Schema::table('pupuks', function (Blueprint $table) {
+            //
+            $table->string('file')->after('content')->default('');
         });
     }
 
@@ -28,6 +26,8 @@ class CreateDaftarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('daftars');
+        Schema::table('pupuks', function (Blueprint $table) {
+            //
+        });
     }
 }

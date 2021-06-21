@@ -6,7 +6,11 @@
 @if (Session::has('error'))
     <div class="alert alert-danger" role="alert">{{Session::get('error')}}</div>
 @endif
-    <form method="POST" action="{{route('daftar.update', $daftars->id)}}">
+<section id="about" style="background-color:honeydew">
+    <br>
+    <div class="container mt-5">
+        <div class="col-lg-12">
+    <form method="POST" action="{{route('daftar.update', $daftars->id)}}" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="mb-3">
@@ -25,8 +29,18 @@
 
             @enderror
         </div>
+        <div class="form-group">
+            <label> Gambar </label>
+            <p><img src="{{asset('storage/'.$daftars->file)}}" class="img-thumbnail" width="200"></p>
+            <br>
+            <input type="file" class="form-control-form" name="file" accept="image/*">
+        </div>
+        <br>
         <button type="submit" class="btn btn-primary">SIMPAN</button>
 
     </form>
-
+</div>
+</div>
+<br>
+</section>
 @endsection

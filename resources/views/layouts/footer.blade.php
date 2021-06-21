@@ -1,6 +1,6 @@
     <!-- footer -->
     <footer>
-        <div class="container text-center bg-success">
+        <div class="container text-center">
             <div class="row">
                 <div class="col-sm-12">
                     <p>copyrigth 2021 | built by Putra Yoga</p>

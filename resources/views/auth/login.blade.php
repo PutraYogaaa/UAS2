@@ -1,6 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+<section id="about" style="background-color:honeydew">
+    <br>
+    <div class="container mt-5">
+        <div class="col-lg-12">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -42,6 +46,7 @@
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
+                                    <br>
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
@@ -53,6 +58,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
+                                <br>
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
@@ -70,4 +76,8 @@
         </div>
     </div>
 </div>
+</div>
+</div>
+<br>
+</section>
 @endsection

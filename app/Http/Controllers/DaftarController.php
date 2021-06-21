@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Daftar;
 use Illuminate\Http\Request;
 
+
 class DaftarController extends Controller
 {
     /**
@@ -12,9 +13,8 @@ class DaftarController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
         $daftars = Daftar::paginate(10);
         return view('bibit.index', compact('daftars'));
     }
@@ -44,10 +44,23 @@ class DaftarController extends Controller
             'content' => 'required',
         ]);
 
-        $daftars = new Daftar;
+        $fileName = time() . '.' . $request->file->extension();
+        $request->file('file')->storeAs('public', $fileName);
+        $daftars = Daftar::create(
+            [
+                'title' => $request->title,
+                'content' => $request->content,
+                'file' => $fileName,
+            ]
+        );
+
+
+        /*$daftars = new Daftar;
         $daftars->title = $request->title;
         $daftars->content = $request->content;
-        $daftars->save();
+        $daftars->file->$fileName;
+        $daftars->save(); */
+
         if (!$daftars) {
             return back()->with('error', 'Data Gagal Disimpan!');
         } else {
@@ -96,10 +109,22 @@ class DaftarController extends Controller
             'content' => 'required',
         ]);
 
-        $daftars = Daftar::find($id);
-        $daftars->title = $request->title;
+        $daftars = Daftar::whereId($id)->first();
+
+        $fileName = time() . '.' . $request->file->extension();
+        $request->file('file')->storeAs('public', $fileName);
+        $daftars->update(
+            [
+                'title' => $request->title,
+                'content' => $request->content,
+                'file' => $fileName,
+            ]
+        );
+        /*$daftars->title = $request->title;
         $daftars->content = $request->content;
         $daftars->save();
+        */
+
         if (!$daftars) {
             return back()->with('error', 'Data Gagal Disimpan!');
         } else {
@@ -116,7 +141,7 @@ class DaftarController extends Controller
     public function destroy($id)
     {
         //
-        $daftars = Daftar::find($id);
+        $daftars = Daftar::whereId($id)->first();
         $daftars->delete();
         if (!$daftars) {
             return back()->with('error', 'Data Gagal Dihapus!');

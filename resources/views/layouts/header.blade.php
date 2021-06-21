@@ -13,11 +13,10 @@
                     <a class="nav-link active" aria-current="page" href="{{url('/')}}" >Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " href="#">Tentang</a>
+                    <a class="nav-link " href="{{url('benih')}}">Bibit</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('daftar')}}">Daftar Bibit</a>
             </ul>
+
 
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
@@ -34,6 +33,12 @@
                         </li>
                     @endif
                 @else
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('daftar')}}">Daftar Bibit</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('pupuk')}}">Daftar Pupuk</a>
+                </li>
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
@@ -41,8 +46,8 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                             document.getElementById('logout-form').submit();">
+                            onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 

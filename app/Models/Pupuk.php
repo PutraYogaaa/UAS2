@@ -5,13 +5,19 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class daftar extends Model
+class Pupuk extends Model
 {
     use HasFactory;
-    protected $table = "daftars";
+    protected $table = "pupuks";
     protected $fillable = [
+        'category_id',
         'title',
         'content',
-        'file',
+        'gambar',
     ];
+
+    public function Category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

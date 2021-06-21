@@ -1,1 +1,44 @@
+html{
+    position: relative;
+}
 
+body{
+    margin-bottom: 0;
+}
+
+.jumbotron{
+    padding: 2rem 1rem;
+    background-color: rgb(201, 245, 136);
+}
+
+section{
+    min-height: 380px;
+}
+
+#about{
+    min-height: 500px;
+}
+
+#form{
+    min-height: 700px;
+}
+
+#form #panel, #flip {
+    padding: 5px;
+    text-align: left;
+    background-color: rgb(201, 245, 136);
+}
+#form #panel {
+    display: none;
+  }
+
+
+footer{
+    position: inherit;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color:yellowgreen;
+    padding-top: 20px;
+    margin-top: 20px;
+}
